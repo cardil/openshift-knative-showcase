@@ -1,6 +1,6 @@
 import { shouldStubBackend } from '../config/backend'
 import { Config } from '../index/types'
-import { CloudEvent } from './u-cloudevents'
+import { CloudEvent } from 'cloudevents'
 import Stub from './stub'
 import ServerSentEvents from './sse'
 

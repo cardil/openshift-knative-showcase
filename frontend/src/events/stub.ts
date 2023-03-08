@@ -1,4 +1,4 @@
-import { CloudEvent } from './u-cloudevents'
+import { CloudEvent } from 'cloudevents'
 import { Config } from '../index/types'
 import { Endpoint, Stream } from './endpoint'
 

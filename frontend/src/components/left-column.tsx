@@ -1,6 +1,6 @@
 import React from 'react'
 import { Stream } from '../events/endpoint'
-import { CloudEvent } from '../events/u-cloudevents'
+import { CloudEvent } from 'cloudevents'
 import InfoProps from './info-props'
 
 interface LeftColumnProps extends InfoProps {

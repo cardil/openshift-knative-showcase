@@ -1,4 +1,4 @@
-import { CloudEvent } from './u-cloudevents'
+import { CloudEvent } from 'cloudevents'
 import { Endpoint, Stream } from './endpoint'
 
 export default class ServerSentEvents implements Endpoint {
