@@ -1,12 +1,30 @@
-import React from "react";
-import InfoProps from "./InfoProps";
+import React from 'react'
+import { Stream } from '../events/endpoint'
+import { CloudEvent } from '../events/u-cloudevents'
+import InfoProps from './info-props'
 
-class LeftColumn extends React.Component<InfoProps> {
+interface LeftColumnProps extends InfoProps {
+  stream: Stream<CloudEvent>
+}
+
+interface LeftColumnState {
+  events: CloudEvent[]
+}
+
+class LeftColumn extends React.Component<LeftColumnProps, LeftColumnState> {
   engine: string;
 
-  constructor(props: InfoProps) {
+  constructor(props: LeftColumnProps) {
     super(props)
+    this.state = {
+      events: []
+    }
     this.engine = props.info.project.platform.replace(/^([a-zA-Z0-9]+)\/.+$/, '$1')
+    props.stream.onData((ce: CloudEvent) => {
+      this.setState({
+        events: [ce, ...this.state.events]
+      })
+    })
   }
   
   render(): React.ReactNode {
@@ -20,7 +38,9 @@ class LeftColumn extends React.Component<InfoProps> {
       </p>
 
       <h4>Collected events:</h4>
-      <ul id="events-list"></ul>
+      <ul id="events-list">
+        {this.renderEvents()}
+      </ul>
 
       <h4>Powered by:</h4>
       <div className="references">
@@ -33,6 +53,12 @@ class LeftColumn extends React.Component<InfoProps> {
       <p>This application has been written with {this.engine} to showcase Knative.</p>
     </section>
     )
+  }
+
+  renderEvents(): React.ReactNode {
+    return this.state.events.map((ce: CloudEvent, i: number) => {
+      return (<li key={i}><code>{JSON.stringify(ce.data)}</code></li>)
+    })
   }
 
   renderEngine(): React.ReactNode {

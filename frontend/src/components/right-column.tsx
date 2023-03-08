@@ -1,5 +1,5 @@
 import React from 'react'
-import InfoProps from './InfoProps'
+import InfoProps from './info-props'
 
 class RightColumn extends React.Component<InfoProps> {
   render(): React.ReactNode {
