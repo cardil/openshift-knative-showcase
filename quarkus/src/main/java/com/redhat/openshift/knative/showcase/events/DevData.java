@@ -7,11 +7,11 @@ import com.redhat.openshift.knative.showcase.hello.Hello;
 import io.cloudevents.core.builder.CloudEventBuilder;
 import io.quarkus.arc.profile.IfBuildProfile;
 import io.quarkus.runtime.StartupEvent;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.event.Observes;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.core.MediaType;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.Observes;
-import javax.inject.Inject;
-import javax.ws.rs.core.MediaType;
 import java.net.URI;
 import java.time.Instant;
 import java.time.OffsetDateTime;

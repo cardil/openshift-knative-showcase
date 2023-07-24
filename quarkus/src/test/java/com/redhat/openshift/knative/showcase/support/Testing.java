@@ -1,7 +1,7 @@
 package com.redhat.openshift.knative.showcase.support;
 
 import com.redhat.openshift.knative.showcase.config.Config;
-import org.eclipse.microprofile.rest.client.RestClientBuilder;
+import org.jboss.resteasy.microprofile.client.BuilderResolver;
 
 import java.net.URI;
 import java.util.Optional;
@@ -9,7 +9,7 @@ import java.util.Optional;
 public final class Testing {
 
   public static <T> T buildRestClient(Class<T> clazz) {
-    return RestClientBuilder
+    return new BuilderResolver()
         .newBuilder()
         .baseUri(URI.create(Constants.DEFAULT_TEST_URL))
         .build(clazz);

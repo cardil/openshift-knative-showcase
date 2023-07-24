@@ -9,10 +9,10 @@
     <maven.compiler.release>17</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <quarkus.platform.group-id>com.redhat.quarkus.platform</quarkus.platform.group-id>
+    <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
-    <quarkus.platform.version>2.13.8.Final-redhat-00004</quarkus.platform.version>
-    <cloudevents.version>2.4.0</cloudevents.version>
+    <quarkus.platform.version>3.2.1.Final</quarkus.platform.version>
+    <cloudevents.version>2.5.0</cloudevents.version>
     <skipITs>true</skipITs>
     <compiler-plugin.version>3.11.0</compiler-plugin.version>
     <surefire-plugin.version>3.0.0</surefire-plugin.version>
@@ -87,7 +87,7 @@
     </dependency>
     <dependency>
       <groupId>io.cloudevents</groupId>
-      <artifactId>cloudevents-http-restful-ws</artifactId>
+      <artifactId>cloudevents-http-restful-ws-jakarta</artifactId>
       <version>${cloudevents.version}</version>
     </dependency>
     <dependency>
@@ -119,13 +119,23 @@
       <scope>test</scope>
     </dependency>
     <!--
-    Following 3 RESTEasy dependencies are required for the REST client to work
+    Following 4 RESTEasy dependencies are required for the REST client to work
     in the integration tests.
     -->
     <dependency>
-      <groupId>org.jboss.resteasy</groupId>
-      <artifactId>resteasy-client-microprofile</artifactId>
+      <groupId>jakarta.interceptor</groupId>
+      <artifactId>jakarta.interceptor-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.resteasy.microprofile</groupId>
+      <artifactId>microprofile-rest-client</artifactId>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.jboss.resteasy</groupId>
+          <artifactId>resteasy-cdi</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.jboss.resteasy</groupId>
@@ -135,6 +145,11 @@
     <dependency>
       <groupId>org.jboss.resteasy</groupId>
       <artifactId>resteasy-jackson2-provider</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>

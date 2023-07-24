@@ -2,12 +2,12 @@ package com.redhat.openshift.knative.showcase.events;
 
 import io.cloudevents.CloudEvent;
 import io.smallrye.mutiny.Multi;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.Path;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.ws.rs.Path;
 
 @Path("")
 @ApplicationScoped

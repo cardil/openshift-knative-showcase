@@ -1,6 +1,6 @@
 package com.redhat.openshift.knative.showcase.hello;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 class Counter {

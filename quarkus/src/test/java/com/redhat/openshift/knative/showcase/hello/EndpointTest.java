@@ -7,12 +7,13 @@ import com.redhat.openshift.knative.showcase.support.HasWiremockServer;
 import com.redhat.openshift.knative.showcase.support.Testing;
 import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.QuarkusTest;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.core.Response;
+
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.junit.jupiter.api.Test;
 
-import javax.inject.Inject;
-import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.Random;
 

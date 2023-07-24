@@ -1,11 +1,11 @@
 package com.redhat.openshift.knative.showcase.hello;
 
 import com.redhat.openshift.knative.showcase.config.Config;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 
 @ApplicationScoped
 class Service {

@@ -3,11 +3,11 @@ package com.redhat.openshift.knative.showcase.events;
 import io.cloudevents.core.builder.CloudEventBuilder;
 import io.cloudevents.jackson.JsonFormat;
 import io.quarkus.test.junit.QuarkusTest;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.core.MediaType;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.junit.jupiter.api.Test;
 
-import javax.inject.Inject;
-import javax.ws.rs.core.MediaType;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.UUID;

@@ -2,11 +2,10 @@ package com.redhat.openshift.knative.showcase.index;
 
 import io.vertx.core.http.HttpServerRequest;
 import org.jboss.resteasy.reactive.server.jaxrs.HttpHeadersImpl;
-
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
-import javax.ws.rs.core.HttpHeaders;
-import javax.ws.rs.core.MediaType;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.core.HttpHeaders;
+import jakarta.ws.rs.core.MediaType;
 
 @RequestScoped
 class Mode {

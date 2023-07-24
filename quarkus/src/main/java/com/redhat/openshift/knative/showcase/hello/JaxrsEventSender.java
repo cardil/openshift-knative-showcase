@@ -3,17 +3,17 @@ package com.redhat.openshift.knative.showcase.hello;
 import com.redhat.openshift.knative.showcase.config.Config;
 import io.cloudevents.CloudEvent;
 import io.cloudevents.http.restful.ws.CloudEventsProvider;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.client.WebTarget;
+import jakarta.ws.rs.client.ClientBuilder;
+import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.core.Response;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.helpers.MessageFormatter;
 import pl.wavesoftware.eid.exceptions.EidIllegalStateException;
-
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Response;
 import java.net.URI;
 
 import static pl.wavesoftware.eid.DefaultEid.eid;

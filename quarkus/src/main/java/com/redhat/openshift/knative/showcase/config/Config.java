@@ -3,17 +3,18 @@ package com.redhat.openshift.knative.showcase.config;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.quarkus.arc.ClientProxy;
 import io.quarkus.runtime.StartupEvent;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.event.Observes;
+import jakarta.inject.Inject;
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Validator;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import pl.wavesoftware.eid.utils.EidExecutions;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.Observes;
-import javax.inject.Inject;
-import javax.validation.ConstraintViolationException;
-import javax.validation.Validator;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import java.net.URI;
 import java.net.URL;
 

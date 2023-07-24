@@ -2,10 +2,9 @@ package com.redhat.openshift.knative.showcase.hello;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Pattern;
 import pl.wavesoftware.utils.stringify.Stringify;
-
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Pattern;
 
 public final class Hello {
 

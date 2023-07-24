@@ -3,13 +3,14 @@ package com.redhat.openshift.knative.showcase.hello;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cloudevents.core.builder.CloudEventBuilder;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.core.MediaType;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pl.wavesoftware.eid.utils.EidExecutions;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.ws.rs.core.MediaType;
 import java.net.URI;
 import java.time.OffsetDateTime;
 import java.util.UUID;

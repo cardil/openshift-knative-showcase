@@ -1,10 +1,10 @@
 package com.redhat.openshift.knative.showcase.index;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.validation.Valid;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.Response;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.validation.Valid;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.core.Response;
 
 @ApplicationScoped
 @Path("")
