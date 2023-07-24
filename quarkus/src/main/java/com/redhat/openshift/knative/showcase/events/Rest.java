@@ -23,9 +23,8 @@ class Rest implements Endpoint {
   }
 
   @Override
-  public Multi<byte[]> events() {
-    return events.stream()
-      .map(this::workaroundQuarkus31587);
+  public Multi<CloudEvent> events() {
+    return events.stream();
   }
 
   @Override
@@ -40,14 +39,4 @@ class Rest implements Endpoint {
     receive(event);
   }
 
-  /**
-   * A workaround for
-   * <a href="https://github.com/quarkusio/quarkus/issues/31587">quarkusio/quarkus#31587</a>
-   * and <a href="https://github.com/cloudevents/sdk-java/issues/533">cloudevents/sdk-java#533</a>.
-   *
-   * TODO: Remove this method once the above issues is fixed.
-   */
-  private byte[] workaroundQuarkus31587(CloudEvent event) {
-    return presenter.asJson(event);
-  }
 }

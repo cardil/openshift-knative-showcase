@@ -18,7 +18,7 @@ public interface Endpoint {
   @RestStreamElementType(JsonFormat.CONTENT_TYPE)
   @Produces(MediaType.SERVER_SENT_EVENTS)
   @Path("events")
-  Multi<byte[]> events();
+  Multi<CloudEvent> events();
 
   @POST
   @Consumes

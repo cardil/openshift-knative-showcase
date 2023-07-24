@@ -3,7 +3,6 @@ package com.redhat.openshift.knative.showcase.events;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cloudevents.CloudEvent;
-import io.cloudevents.jackson.JsonFormat;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
@@ -25,11 +24,6 @@ class Presenter {
   @Inject
   Presenter(ObjectMapper mapper) {
     this.mapper = mapper;
-  }
-
-  byte[] asJson(CloudEvent ce) {
-    var serializer = new JsonFormat();
-    return serializer.serialize(ce);
   }
 
   CharSequence asHumanReadable(CloudEvent ce) {
