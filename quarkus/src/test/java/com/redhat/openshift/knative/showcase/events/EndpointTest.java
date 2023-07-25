@@ -1,17 +1,18 @@
 package com.redhat.openshift.knative.showcase.events;
 
 import io.cloudevents.core.builder.CloudEventBuilder;
-import io.cloudevents.jackson.JsonFormat;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.core.MediaType;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -26,12 +27,11 @@ class EndpointTest {
   }
 
   @Test
+  @Timeout(value = 1, unit = TimeUnit.MINUTES)
   void events() throws ExecutionException, InterruptedException {
     var id = UUID.randomUUID();
     sendEvent(id.toString());
-    var serializer = new JsonFormat();
     var collected = client.events()
-      .map(serializer::deserialize)
       .capDemandsTo(1)
       .collect()
       .first()
